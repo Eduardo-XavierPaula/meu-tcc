@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "212842225365",
+    "project_id": "tccunifacef",
+    "storage_bucket": "tccunifacef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212842225365:android:d20df0fb2aa77c29330c5c",
+        "android_client_info": {
+          "package_name": "br.com.xavier.meu_tcc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212842225365-u5ej7loqc4e7mvqpfr6p6tsl2bbh7el3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNLK7p_mN-dlvPi5lagzYIviL6FEzYJHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212842225365-u5ej7loqc4e7mvqpfr6p6tsl2bbh7el3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

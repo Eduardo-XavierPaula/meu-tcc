@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meu_tcc/routes/routes.dart';
 import 'package:meu_tcc/screens/home_screen.dart';
 
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
+      onGenerateRoute: RouteGenerator.getRoute,
     );
   }
 }

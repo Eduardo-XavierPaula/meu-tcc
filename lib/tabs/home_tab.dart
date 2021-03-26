@@ -1,9 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:meu_tcc/screens/agenda_screen.dart';
+import 'package:meu_tcc/screens/clients_screen.dart';
+import 'package:meu_tcc/tiles/menu_button_tile.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class HomeTab extends StatelessWidget {
+  final PageController pageController;
+
+  HomeTab(this.pageController);
+
   @override
   Widget build(BuildContext context) {
 
@@ -11,8 +18,9 @@ class HomeTab extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromARGB(255, 211, 118, 130),
-            Color.fromARGB(255, 253, 181, 168),
+            Color.fromARGB(255, 31, 47, 152),
+            Color.fromARGB(255, 28,167,236),
+            Color.fromARGB(255, 74,222,222),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight
@@ -30,47 +38,29 @@ class HomeTab extends StatelessWidget {
               backgroundColor:Colors.transparent,
               elevation:0.0,
               flexibleSpace: FlexibleSpaceBar(
-                title: const Text("Meu Tcc"),
+                title: const Text("Bem vindo"),
                 centerTitle: true,
               ),
             ),
-            // FutureBuilder<QuerySnapshot>(
-            //   future: Firestore.instance
-            //     .collection("Clientes").orderBy("nome").getDocuments(),
-            //   builder: (context, snapshot){
-            //     if(!snapshot.hasData)
-            //       return SliverToBoxAdapter(
-            //         child: Container(
-            //             height: 200.0,
-            //             alignment: Alignment.center,
-            //             child: CircularProgressIndicator(
-            //               valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-            //             ),
-            //           )
-            //       );
-            //       else{                    
-            //         return SliverStaggeredGrid.count(
-            //           crossAxisCount: 2,
-            //           mainAxisSpacing: 1.0,
-            //           crossAxisSpacing: 1.0,
-            //           staggeredTiles:snapshot.data.documents.map(
-            //             (doc){
-            //               return StaggeredTile.count(doc.data["x"], doc.data["y"]);
-            //             } 
-            //           ).toList(),
-            //           children: snapshot.data.documents.map(
-            //             (doc){
-            //               return FadeInImage.memoryNetwork(
-            //                 placeholder: kTransparentImage, 
-            //                 image: doc.data["image"],
-            //                 fit: BoxFit.cover,
-            //                 );
-            //             }
-            //           ).toList(),
-            //       );
-            //       }
-            //   },
-            // ),           
+            SliverStaggeredGrid.count(
+                      crossAxisCount: 2,                  
+                      mainAxisSpacing: 5.0,
+                      crossAxisSpacing: 5.0,
+                      staggeredTiles:[
+                        const StaggeredTile.count(1,1),
+                        const StaggeredTile.count(1,1),
+                        const StaggeredTile.count(1,1),
+                        const StaggeredTile.count(1,1),
+                        const StaggeredTile.count(2,1),
+                        ],
+                      children: [                        
+                        MenuButtonTile(Icons.person,"Clientes","/clients"),   
+                        MenuButtonTile(Icons.book,"Agenda","/agenda"),   
+                        MenuButtonTile(Icons.ballot,"Recibos","/recibos"),   
+                        MenuButtonTile(Icons.settings,"Configurações","/config"),   
+                        MenuButtonTile(Icons.explore,"endereços","/config"),   
+                      ]
+                  ),                
           ]
         )
       ],

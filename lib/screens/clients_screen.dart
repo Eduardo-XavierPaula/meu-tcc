@@ -13,7 +13,14 @@ class ClientsScreen extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
           ),
-      body:ClientsTab()      
+      body:ClientsTab(),
+      floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        Navigator.of(context).pushNamed("/form");
+      },
+      child: const Icon(Icons.person_add_alt_1_rounded),
+      backgroundColor: Theme.of(context).primaryColor,
+    ),      
     );
   }
 }

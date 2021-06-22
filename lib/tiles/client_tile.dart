@@ -19,7 +19,7 @@ class ClientTile extends StatelessWidget {
                     color: Colors.black,                  
                     ),),
       
-      title: Text(snapshot.data["nome"]),
+      title: Text(snapshot.data["name"]),
       trailing: Icon(Icons.keyboard_arrow_right),
       onTap: (){
         // Navigator.of(context).push(

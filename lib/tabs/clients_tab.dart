@@ -6,7 +6,7 @@ class ClientsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<QuerySnapshot>(
-        future: Firestore.instance.collection("clients").orderBy("nome").getDocuments(),
+        future: Firestore.instance.collection("clients").orderBy("name").getDocuments(),
         builder: (context, snapshot) {
           if (!snapshot.hasData)
             return Center(

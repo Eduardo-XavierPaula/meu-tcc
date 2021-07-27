@@ -15,8 +15,8 @@ class MenuButtonTile extends StatelessWidget {
         Navigator.of(context).pushNamed(route);
       },
       child: Container(
-        width: 175,
-        height: 200,
+        // width: 175,
+        // height: 200,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,

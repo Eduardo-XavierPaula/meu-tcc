@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ClientData{
   String category;
-  String id;
+  String cid;
 
   String name;
   String email;
@@ -10,17 +10,19 @@ class ClientData{
   num tel;
 
   ClientData.fromDocument(DocumentSnapshot snapshot){
-    id = snapshot.documentID;
+    cid = snapshot.documentID;
     name = snapshot.data["name"];
     email = snapshot.data["email"];
     tel = snapshot.data["tel"] + 0.0;
   }
 
-  Map<String,dynamic> toResumeMap(){
+  Map<String,dynamic> toMap(){
     return{
       "name":name,
       "email":email,
       "tel":tel,
     };
+
+
   }
 }

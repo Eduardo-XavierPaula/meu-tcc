@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:meu_tcc/screens/client_info_screen.dart';
 // import 'package:loja_virtual/screens/category_screen.dart';
 
 class ClientTile extends StatelessWidget {
@@ -22,9 +23,9 @@ class ClientTile extends StatelessWidget {
       title: Text(snapshot.data["name"]),
       trailing: Icon(Icons.keyboard_arrow_right),
       onTap: (){
-        // Navigator.of(context).push(
-        //   MaterialPageRoute(builder: (context)=>CategoryScreen(snapshot))
-        // );
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context)=>ClientInfoScreen(snapshot))
+        );
       },
     );
   }

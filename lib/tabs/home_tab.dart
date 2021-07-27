@@ -38,6 +38,7 @@ class HomeTab extends StatelessWidget {
                     end: Alignment.centerRight,
                     tileMode: TileMode.clamp)),
           ),
+          actions: [ButtonBar()],
         ),
         body: Center(
           child: Container(
@@ -46,40 +47,160 @@ class HomeTab extends StatelessWidget {
                 padding: const EdgeInsets.all(14.0),
                 child: Column(
                   children: <Widget>[
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.tight,
+                      child: Row(
+                        children: <Widget>[
+                          Flexible(
+                            flex: 1,
+                            fit: FlexFit.tight,
+                            child: Container(
+                              child: MenuButtonTile(
+                                  Icons.person, "Clientes", "/clients"),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                              ), //BoxDecoration
+                            ), //Container
+                          ), //Flexible
+                          SizedBox(
+                            width: 20,
+                          ), //SizedBox
+                          Flexible(
+                            flex: 1,
+                            fit: FlexFit.tight,
+                            child: Container(
+                              child: MenuButtonTile(
+                                  Icons.book, "Agenda", "/agenda"),
+                                decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.red,
+                            ) //BoxDecoration
+                                ), //Container
+                          ) //Flexible
+                        ], //<Widget>[]
+                        mainAxisAlignment: MainAxisAlignment.center,
+                      ), //Row
+                    ), //Flexible
                     SizedBox(
-                      width: 20,
+                      height: 20,
+                    ), //SixedBox
+                    //Flexible
+                    //SixedBox
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.tight,
+                      child: Row(
+                        children: <Widget>[
+                          Flexible(
+                            flex: 1,
+                            fit: FlexFit.tight,
+                            child: Container(
+                              child: MenuButtonTile(
+                                  Icons.ballot, "Guias", "/guias"),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.cyan,
+                              ), //BoxDecoration
+                            ), //Container
+                          ), //Flexible
+                          SizedBox(
+                            width: 20,
+                          ), //SizedBox
+                          Flexible(
+                            flex: 1,
+                            fit: FlexFit.tight,
+                            child: Container(
+                                child: MenuButtonTile(
+                                   Icons.settings, "Configurações", "/configs"),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.cyan,
+                                ) //BoxDecoration
+                                ), //Container
+                          ) //Flexible
+                        ], //<Widget>[]
+                        mainAxisAlignment: MainAxisAlignment.center,
+                      ),
                     ),
-                    Row(
-                      children: <Widget>[
-                        MenuButtonTile(Icons.person, "Clientes", "/clients"),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        MenuButtonTile(Icons.book, "Agenda", "/agenda"),
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.center,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        MenuButtonTile(Icons.ballot, "Guias", "/guias"),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        MenuButtonTile(
-                            Icons.settings, "Configurações", "/config"),
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.center,
-                    ),
-                    MenuButtonTile(Icons.explore, "endereços", "/config"),
                     SizedBox(
-                      width: 20,
+                      height: 20,
+                    ),
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.tight,
+                      child: Container(
+                        child: MenuButtonTile(
+                            Icons.explore, "Endereços", "/address"),
+                        width: 380,
+                        height: 200,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.blue), //BoxDecoration
+                      ),
                     ),
                   ],
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                 ),
               )),
-        ));
+        )
+        // Center(
+        //   child: Container(
+        //       decoration: _buildBodyBack(),
+        //       child: Padding(
+        //         padding: const EdgeInsets.all(14.0),
+        //         child: Column(
+        //           children: <Widget>[
+        //             SizedBox(
+        //               width: 16,
+        //             ),
+        //             Container(
+        //                 child: Row(
+        //               children: <Widget>[
+        //                 Expanded(
+        //                     child: MenuButtonTile(
+        //                         Icons.person, "Clientes", "/clients")),
+        //                 SizedBox(
+        //                   width: 16,
+        //                 ),
+        //                 Expanded(
+        //                     child: MenuButtonTile(
+        //                         Icons.book, "Agenda", "/agenda")),
+        //               ],
+        //               mainAxisAlignment: MainAxisAlignment.center,
+        //             )),
+        //             SizedBox(
+        //               width: 16,
+        //             ),
+        //             Container(
+        //                 child:Row(
+        //               children: <Widget>[
+        //                 Expanded(
+        //                     child: MenuButtonTile(
+        //                         Icons.ballot, "Guias", "/guias")),
+        //                 SizedBox(
+        //                   width: 16,
+        //                 ),
+        //                 Expanded(
+        //                     child: MenuButtonTile(
+        //                         Icons.settings, "Configurações", "/config")),
+        //               ],
+        //               mainAxisAlignment: MainAxisAlignment.center,
+        //             )),
+        //             Container(
+        // child: MenuButtonTile(
+        //     Icons.explore, "endereços", "/config")),
+        //             SizedBox(
+        //               width: 20,
+        //             ),
+        //           ],
+        //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //           crossAxisAlignment: CrossAxisAlignment.center,
+        //         ),
+        //       )),
+        // )
+        );
 
 //Cor gradiente
 // new BoxDecoration(

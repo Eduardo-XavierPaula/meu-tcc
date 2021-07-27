@@ -70,16 +70,15 @@ class _FormClientScreenState extends State<FormClientScreen> {
                 color: Theme.of(context).primaryColor,
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
-                  Map<String, dynamic> data = {
-                    "name": _nameController.text,
-                    "email": _emailController.text,
-                    "tel": _telController.text
-                  };
-                  Firestore.instance.collection("clients").add(data);
-                  Navigator.of(context)
-                      .pushNamed("/clients")
-                      .then((value) => setState(() {}));
-                }},
+                    Map<String, dynamic> data = {
+                      "name": _nameController.text,
+                      "email": _emailController.text,
+                      "tel": _telController.text
+                    };
+                    Firestore.instance.collection("clients").add(data);
+                    Navigator.pop(context); 
+                  }
+                },
               )),
         ]),
       ),

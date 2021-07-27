@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:meu_tcc/tabs/clients_tab.dart';
 import 'package:meu_tcc/tiles/client_tile.dart';
 
-class ClientsScreen extends StatelessWidget {
-   
+class ClientsScreen extends StatefulWidget {
   @override
+  _ClientsScreenState createState() => _ClientsScreenState();
+}
+
+class _ClientsScreenState extends State<ClientsScreen> {
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -16,11 +20,14 @@ class ClientsScreen extends StatelessWidget {
       body:ClientsTab(),
       floatingActionButton: FloatingActionButton(
       onPressed: () {
-        Navigator.of(context).pushNamed("/form");
+        Navigator.of(context).pushNamed("/form").then((value) => setState(() {}));
       },
       child: const Icon(Icons.person_add_alt_1_rounded),
       backgroundColor: Theme.of(context).primaryColor,
     ),      
     );
   }
+
 }
+
+

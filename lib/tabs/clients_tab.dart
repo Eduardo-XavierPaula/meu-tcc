@@ -1,12 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:meu_tcc/models/user_model.dart';
 import 'package:meu_tcc/tiles/client_tile.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class ClientsTab extends StatelessWidget {
+   
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<QuerySnapshot>(
-        future: Firestore.instance.collection("clients").orderBy("name").getDocuments(),
+    return ScopedModelDescendant<UserModel>(
+        builder: (context, child, model) {
+        return  FutureBuilder<QuerySnapshot>(
+        future: Firestore.instance
+          .collection("clients")          
+          .where("userId", isEqualTo:model.firebaseUser.uid)          
+          .getDocuments(),
         builder: (context, snapshot) {
           if (!snapshot.hasData)
             return Center(
@@ -24,6 +32,6 @@ class ClientsTab extends StatelessWidget {
               children: dividedTiles,
             );
           }
-        });
+        });});
   }
 }

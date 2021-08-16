@@ -22,12 +22,11 @@ class ClientModel extends Model {
     products.add(clientData);
 
     Firestore.instance
-        .collection("users")
-        .document(user.firebaseUser.uid)
         .collection("clients")
         .add(clientData.toMap())
         .then((doc) {
       clientData.cid = doc.documentID;
+      clientData.userId=user.firebaseUser.uid;
     });
 
     notifyListeners();
@@ -45,28 +44,6 @@ class ClientModel extends Model {
 
     notifyListeners();
   }
-
-  // void decProduct(ClientData clientData) {
-  //   clientData.quantity--;
-  //   Firestore.instance
-  //       .collection("users")
-  //       .document(user.firebaseUser.uid)
-  //       .collection("clients")
-  //       .document(clientData.cid)
-  //       .updateData(clientData.toMap());
-  //   notifyListeners();
-  // }
-
-  // void incProduct(ClientData clientData) {
-  //   clientData.quantity++;
-  //   Firestore.instance
-  //       .collection("users")
-  //       .document(user.firebaseUser.uid)
-  //       .collection("clients")
-  //       .document(clientData.cid)
-  //       .updateData(clientData.toMap());
-  //   notifyListeners();
-  // }
 
   void _loadClients() async {
     QuerySnapshot query = await Firestore.instance

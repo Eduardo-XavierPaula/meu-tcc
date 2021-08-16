@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:flutter/material.dart";
+import 'package:meu_tcc/data/guias_data.dart';
 // import 'package:loja_virtual/datas/product_data.dart';
 // import 'package:loja_virtual/tiles/product_tile.dart';
 
@@ -29,8 +30,8 @@ class ClientInfoScreen extends StatelessWidget {
             ),
           ),
           body: FutureBuilder<QuerySnapshot>(
-            future: Firestore.instance.collection("products").document(snapshot.documentID).
-            collection("items").getDocuments(),
+            future: Firestore.instance.collection("clients").document(snapshot.documentID).
+            collection("Guias").getDocuments(),
             builder: (context, snapshot) {
               if (!snapshot.hasData)
                 return Center(child: CircularProgressIndicator());
@@ -46,10 +47,11 @@ class ClientInfoScreen extends StatelessWidget {
                           crossAxisSpacing: 4.0,
                           childAspectRatio: 0.65
                         ),
-                        // itemCount: snapshot.data.documents.length,
+                        itemCount: snapshot.data.documents.length,
                       itemBuilder: (context, index){
-                        // ProductData data =ProductData.fromDocument(snapshot.data.documents[index]);
-                        // data.category=this.snapshot.documentID;
+                        GuiasData data =GuiasData.fromDocument(snapshot.data.documents[index]);
+                        data.client=this.snapshot.documentID;
+                        return Container(child: Text(data.title),);
                         // return ProductTile("grid", data);
                       },
                       ),

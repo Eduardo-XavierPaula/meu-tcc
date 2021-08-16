@@ -1,5 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:meu_tcc/data/client_data.dart';
+import 'package:meu_tcc/models/client_model.dart';
+import 'package:meu_tcc/models/user_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class FormClientScreen extends StatefulWidget {
   @override
@@ -14,7 +18,7 @@ class _FormClientScreenState extends State<FormClientScreen> {
   final _formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {    
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -32,7 +36,9 @@ class _FormClientScreenState extends State<FormClientScreen> {
                   tileMode: TileMode.clamp)),
         ),
       ),
-      body: Form(
+      body: ScopedModelDescendant<UserModel>(
+        builder: (context, child, model) {
+        return Form(
         key: _formKey,
         child: ListView(padding: EdgeInsets.all(16.0), children: [
           TextFormField(
@@ -70,18 +76,28 @@ class _FormClientScreenState extends State<FormClientScreen> {
                 color: Theme.of(context).primaryColor,
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
-                    Map<String, dynamic> data = {
-                      "name": _nameController.text,
-                      "email": _emailController.text,
-                      "tel": _telController.text
-                    };
-                    Firestore.instance.collection("clients").add(data);
+                    // Map<String, dynamic> data = {
+                    //   "name": _nameController.text,
+                    //   "email": _emailController.text,
+                    //   "tel": _telController.text
+                    // };
+                    ClientData clientData = ClientData();
+                    clientData.name = _nameController.text;
+                    clientData.email=_emailController.text;
+                    clientData.tel= int.parse(_telController.text);
+                    clientData.userId=model.firebaseUser.uid;
+                    
+                    // clientData.cid=client.id;
+                    ClientModel.of(context).addClient(
+                      clientData
+                    );
+                    // Firestore.instance.collection("clients").add(data);
                     Navigator.pop(context); 
                   }
                 },
               )),
         ]),
-      ),
+      );}),
     );
   }
 }

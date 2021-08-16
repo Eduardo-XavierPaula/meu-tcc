@@ -6,6 +6,7 @@ import 'package:meu_tcc/screens/config_screen.dart';
 import 'package:meu_tcc/screens/form_client_screen.dart';
 import 'package:meu_tcc/screens/guias_screen.dart';
 import 'package:meu_tcc/screens/home_screen.dart';
+import 'package:meu_tcc/screens/login_screen.dart';
 
 class RouteGenerator {
   static var routes = <String, WidgetBuilder> {
@@ -15,7 +16,8 @@ class RouteGenerator {
       '/configs': (BuildContext context) => ConfigScreen(),
       '/form': (BuildContext context) => FormClientScreen(),
       '/home': (BuildContext context) => HomeScreen(),
-      '/address': (BuildContext context) => AdressScreen()
+      '/address': (BuildContext context) => AdressScreen(),
+      '/login': (BuildContext context) => LoginScreen(),
     };
   static Route<dynamic> getRoute(RouteSettings settings) {
       var builder = routes[settings.name];

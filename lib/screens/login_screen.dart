@@ -17,7 +17,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+    Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(title: Text("Entrar"), centerTitle: true, actions: [
           FlatButton(

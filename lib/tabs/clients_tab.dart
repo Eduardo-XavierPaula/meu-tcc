@@ -11,16 +11,18 @@ class ClientsTab extends StatelessWidget {
     return ScopedModelDescendant<UserModel>(
         builder: (context, child, model) {
         return  FutureBuilder<QuerySnapshot>(
-        future: Firestore.instance
-          .collection("clients")          
-          .where("userId", isEqualTo:model.firebaseUser.uid)          
+        future: 
+        Firestore.instance
+          .collection("clients")                       
+          .where("userId", isEqualTo:model.firebaseUser.uid) 
+          .orderBy("name",descending: false)                                        
           .getDocuments(),
         builder: (context, snapshot) {
           if (!snapshot.hasData)
             return Center(
               child: CircularProgressIndicator(),
             );
-          else {
+          else {            
             var dividedTiles = ListTile.divideTiles(
                     tiles: snapshot.data.documents.map((doc) {
                       return ClientTile(doc);

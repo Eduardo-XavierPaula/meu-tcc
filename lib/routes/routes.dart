@@ -4,7 +4,7 @@ import 'package:meu_tcc/screens/agenda_screen.dart';
 import 'package:meu_tcc/screens/clients_screen.dart';
 import 'package:meu_tcc/screens/config_screen.dart';
 import 'package:meu_tcc/screens/form_client_screen.dart';
-import 'package:meu_tcc/screens/guias_screen.dart';
+import 'package:meu_tcc/screens/guia_screen.dart';
 import 'package:meu_tcc/screens/home_screen.dart';
 import 'package:meu_tcc/screens/login_screen.dart';
 
@@ -12,7 +12,7 @@ class RouteGenerator {
   static var routes = <String, WidgetBuilder> {
       '/clients': (BuildContext context) => ClientsScreen(),
       '/agenda': (BuildContext context) => AgendaScreen(),
-      '/guias': (BuildContext context) => GuiasScreen(),
+      '/guias': (BuildContext context) => GuiaScreen(),
       '/configs': (BuildContext context) => ConfigScreen(),
       '/form': (BuildContext context) => FormClientScreen(),
       '/home': (BuildContext context) => HomeScreen(),

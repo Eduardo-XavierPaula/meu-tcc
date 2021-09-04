@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GuiasScreen extends StatelessWidget {
+class GuiaScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {

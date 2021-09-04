@@ -1,24 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class GuiasData {
+class GuiaData {
   String client;
   String id;
 
-  String title;
+  String treatment;
   String description;
 
   Timestamp data;
 
-  GuiasData.fromDocument(DocumentSnapshot snapshot) {
+  GuiaData.fromDocument(DocumentSnapshot snapshot) {
     id = snapshot.documentID;
-    title = snapshot.data["title"];
+    treatment = snapshot.data["treatment"];
     description = snapshot.data["description"];
     data = snapshot.data["data"];
   }
 
   Map<String, dynamic> toResumeMap(){
     return {
-      "title":title,
+      "treatment":treatment,
       "description":description,
       "data":data
     };

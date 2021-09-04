@@ -1,9 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:flutter/material.dart";
-import 'package:meu_tcc/data/guias_data.dart';
+import 'package:meu_tcc/data/guia_data.dart';
+import 'package:meu_tcc/tiles/guia_tile.dart';
 // import 'package:loja_virtual/datas/product_data.dart';
 // import 'package:loja_virtual/tiles/product_tile.dart';
+// class ClientInfoScreen extends StatefulWidget {
+//   final GuiaData guia;
 
+//   ClientInfoScreen(this.guia);
+//   @override
+//   _ClientInfoScreenState createState() => _ClientInfoScreenState(guia);
+// }
+
+// class _ClientInfoScreenState extends State<ClientInfoScreen> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+      
+//     );
+//   }
+// }
 class ClientInfoScreen extends StatelessWidget {
   final DocumentSnapshot snapshot;
 
@@ -31,7 +47,7 @@ class ClientInfoScreen extends StatelessWidget {
           ),
           body: FutureBuilder<QuerySnapshot>(
             future: Firestore.instance.collection("clients").document(snapshot.documentID).
-            collection("Guias").getDocuments(),
+            collection("guias").getDocuments(),
             builder: (context, snapshot) {
               if (!snapshot.hasData)
                 return Center(child: CircularProgressIndicator());
@@ -49,10 +65,10 @@ class ClientInfoScreen extends StatelessWidget {
                         ),
                         itemCount: snapshot.data.documents.length,
                       itemBuilder: (context, index){
-                        GuiasData data =GuiasData.fromDocument(snapshot.data.documents[index]);
+                        GuiaData data =GuiaData.fromDocument(snapshot.data.documents[index]);
                         data.client=this.snapshot.documentID;
-                        return Container(child: Text(data.title),);
-                        // return ProductTile("grid", data);
+                        // return Container(child: Text(data.client),);
+                        return GuiaTile("grid", data);
                       },
                       ),
                     ListView.builder(

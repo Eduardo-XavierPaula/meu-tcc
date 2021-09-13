@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
                     primarySwatch: Colors.blue,
                     primaryColor: Color.fromARGB(255, 4, 125, 141)),
                 debugShowCheckedModeBanner: false,
-                home: LoginScreen(),
+                home: (model.isLoggedIn())?HomeScreen():LoginScreen(),
                 onGenerateRoute: RouteGenerator.getRoute,
               ),
             );

@@ -13,7 +13,7 @@ class GuiaData {
   Timestamp data;
   Timestamp vencimento;
 
-
+  GuiaData();
   GuiaData.fromDocument(DocumentSnapshot snapshot) {
     id = snapshot.documentID;
     treatment = snapshot.data["treatment"];
@@ -25,7 +25,7 @@ class GuiaData {
     pago=snapshot.data["pago"];
   }
 
-  Map<String, dynamic> toResumeMap(){
+  Map<String, dynamic> toMap(){
     return {
       "treatment":treatment,
       "description":description,

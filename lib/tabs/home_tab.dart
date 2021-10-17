@@ -7,9 +7,7 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class HomeTab extends StatelessWidget {
-  final PageController pageController;
-
-  HomeTab(this.pageController);
+  
 
   @override
   Widget build(BuildContext context) {

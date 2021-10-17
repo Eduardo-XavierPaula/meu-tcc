@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
                 title: "Home Care",
                 theme: ThemeData(
                     primarySwatch: Colors.blue,
+                    appBarTheme: AppBarTheme(color: Color.fromARGB(255, 4, 125, 141)),
                     primaryColor: Color.fromARGB(255, 4, 125, 141)),
                 debugShowCheckedModeBanner: false,
                 home: (model.isLoggedIn())?HomeScreen():LoginScreen(),

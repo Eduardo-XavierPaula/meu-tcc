@@ -17,8 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Scaffold(
+    return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(title: Text("Entrar"), centerTitle: true, actions: [
           FlatButton(
@@ -111,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _onSuccess() {
-     Navigator.of(context).pushNamed("/home");
+    Navigator.of(context).pushNamed("/home");
   }
 
   void _onFail() {
